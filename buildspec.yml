@@ -9,7 +9,10 @@ phases:
       - npm install
   build:
     commands:
-      - echo Build step (optional for Node.js app)
+      - echo Build started on `date`
+      # Run your build script here, or remove if not needed
+      - npm run build || echo "No build script defined, skipping"
+
 artifacts:
   files:
     - '**/*'
