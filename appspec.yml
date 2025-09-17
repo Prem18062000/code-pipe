@@ -4,10 +4,15 @@ os: linux
 files:
   - source: /
     destination: /home/ubuntu/myapp
-    overwrite: true  
+    overwrite: true
 
 hooks:
+  BeforeInstall:
+    - location: scripts/clean.sh
+      timeout: 180
+      runas: ubuntu
+
   AfterInstall:
     - location: scripts/start.sh
-      timeout: 60
+      timeout: 300
       runas: ubuntu
